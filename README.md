@@ -1,5 +1,3 @@
-# letsdefend-soc-investigations
-SOC analyst and incident response investigations from LetsDefend: phishing, web attacks, Log4Shell, privilege escalation. Mapped to MITRE ATT&amp;CK with evidence and IOCs.
 # 🛡️ SOC Investigations – LetsDefend Write-ups
 
 **Sidharth V Nambiar** · CompTIA Security+ · Griffith University
@@ -9,14 +7,14 @@ Hands-on SOC analyst and incident responder investigations from the [LetsDefend]
 
 | Alert | Category | Severity | Verdict | Highlights |
 |---|---|---|---|---|
-| [SOC337 – Lazarus Phishing Campaign (APT38)](SOC337/) | Phishing | High | TP, contained | Fake crypto job offer → malicious link → PowerShell payload; nation-state attribution |
-| [SOC338 – Lumma Stealer via ClickFix](SOC338/) | Phishing / Malware | Critical | TP, contained | Fake reCAPTCHA → Run dialog → obfuscated PowerShell → mshta payload |
-| [SOC342 – SharePoint ToolShell (CVE-2025-53770)](SOC342/) | Web exploit (0-day) | Critical | TP, contained + escalated | Unauthenticated RCE → web shell → MachineKey theft |
-| [SOC165 – SQL Injection](SOC165/) | Web attack | High | TP, unsuccessful | Decoded `OR 1=1` payloads; HTTP 500 / same size proved failure |
-| [SOC168 – Command Injection (whoami)](SOC168/) | Web attack | High | TP, successful + escalated | EDR terminal history confirmed `cat /etc/shadow` |
-| [SOC166 – Cross-Site Scripting (XSS)](SOC166/) | Web attack | Medium | TP, unsuccessful | 4 payload variants; HTTP 302 / 0 bytes = not reflected |
-| [SOC161 – Log4Shell (CVE-2021-44228)](SOC161/) | RCE (Incident Responder) | Critical | TP, isolated | JNDI in chat → LDAP callback → remote Java class executed |
-| [SOC299 – UAC Bypass](SOC299/) ⭐ | Privilege escalation (Incident Responder) | High | TP, successful | RDP brute force → in-memory WinPwn → DiskCleanup UAC bypass → backdoor account |
+| [SOC337 – Lazarus Phishing Campaign (APT38)](alerts/SOC337/) | Phishing | High | TP, contained | Fake crypto job offer → malicious link → PowerShell payload; nation-state attribution |
+| [SOC338 – Lumma Stealer via ClickFix](alerts/SOC338/) | Phishing / Malware | Critical | TP, contained | Fake reCAPTCHA → Run dialog → obfuscated PowerShell → mshta payload |
+| [SOC342 – SharePoint ToolShell (CVE-2025-53770)](alerts/SOC342/) | Web exploit (0-day) | Critical | TP, contained + escalated | Unauthenticated RCE → web shell → MachineKey theft |
+| [SOC165 – SQL Injection](alerts/SOC165/) | Web attack | High | TP, unsuccessful | Decoded `OR 1=1` payloads; HTTP 500 / same size proved failure |
+| [SOC168 – Command Injection (whoami)](alerts/SOC168/) | Web attack | High | TP, successful + escalated | EDR terminal history confirmed `cat /etc/shadow` |
+| [SOC166 – Cross-Site Scripting (XSS)](alerts/SOC166/) | Web attack | Medium | TP, unsuccessful | 4 payload variants; HTTP 302 / 0 bytes = not reflected |
+| [SOC161 – Log4Shell (CVE-2021-44228)](alerts/SOC161/) | RCE (Incident Responder) | Critical | TP, isolated | JNDI in chat → LDAP callback → remote Java class executed |
+| [SOC299 – UAC Bypass](alerts/SOC299/) ⭐ | Privilege escalation (Incident Responder) | High | TP, successful | RDP brute force → in-memory WinPwn → DiskCleanup UAC bypass → backdoor account |
 
 ⭐ **Toughest case:** SOC299, a full attack chain from initial access to persistence.
 
@@ -41,10 +39,13 @@ LetsDefend SIEM · EDR · Email Security · CyberChef · VirusTotal · AbuseIPDB
 
 ## 📁 Structure
 ```
-SOCxxx/
-├── README.md        # full investigation write-up
-└── screenshots/     # evidence images
+README.md            # this page
+alerts/
+└── SOCxxx/
+    ├── README.md    # full investigation write-up
+    └── screenshots/ # evidence images
 ```
 
 ---
 *All cases are from a training environment. Indicators are defanged.*
+
